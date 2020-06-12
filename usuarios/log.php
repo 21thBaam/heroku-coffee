@@ -18,6 +18,14 @@ require '../logica/conexion.php';
 <body id="test">
     <?php
     
+    if($_SESSION['id'] == 4){
+        $log = consulta("SELECT * FROM log");
+        echo '<div class="log">';
+        for($i=0;$i < sizeof($log);$i++){
+            echo '<p class="logp">'.$log[$i]["fecha"]." ".$log[$i]["tipo"]." ".$log[$i]["usuario"]."<br></p>";
+        }
+        echo '</div>';
+    }
     
     echo '
     <script>
