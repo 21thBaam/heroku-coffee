@@ -14,6 +14,11 @@
             $_SESSION['username'] = $user;
             $_SESSION['loggedin'] = true;
             $_SESSION['id'] = $b[0]['id'];
+            $time = time()-28800;
+            $fecha = date("Y-m-d H:i:s", $time);
+            $conn->query("INSERT INTO log  (fecha, tipo, usuario)
+            VALUES('$fecha','Inicio de sesion','$_SESSION[id]')");
+            
             echo'<script type="text/javascript">
                 alert("Conectado Satisfactoriamente");
                 window.location.href="../index.html";

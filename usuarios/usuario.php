@@ -33,6 +33,8 @@ require '../logica/sesion_iniciada.php';
                         <br><br>
                         <a href="../usuarios/modificar_clave.php" class="a">Modificar contraseña</a>
                         <br><br>
+                        <a href="../usuarios/log.php" class="a">Log</a>
+                        <br><br>
                         <a href="../logica/log_out.php" class="a">Salir</a>
                         <br><br>
                         ';

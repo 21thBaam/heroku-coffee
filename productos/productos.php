@@ -12,8 +12,13 @@
 </head>
 <body id="test">
     <?php
+    require '../logica/conexion.php';
     require '../logica/sql_functions.php';
     $productos = consulta("SELECT * FROM productos");
+    $time = time()-28800;
+    $fecha = date("Y-m-d H:i:s", $time);
+    $conn->query("INSERT INTO log  (fecha, tipo, usuario)
+    VALUES('$fecha','Productos obtenidos','$_SESSION[id]')");
     ?>
     <h1>Productos</h1>
 
@@ -32,7 +37,7 @@
                                     <div class="card">
                                         <img src="'.$productos[$i]['img_dir'].'" alt="Feels Bad">
                                         <h3>'.$productos[$i]['nombre'].'</h3>
-                                        <p>$ '.$productos[$i]['precio'].' USD</p>
+                                        <p>$ '.$productos[$i]['precio'].' </p>
                                         <a href="../productos/vista_comprar.php?producto='.$productos[$i]['id'].'" class="button">Comprar</a>
                                     </div>
                                 </div>';

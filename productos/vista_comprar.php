@@ -1,5 +1,6 @@
 <?php
 require '../logica/sesion_iniciada.php';
+require '../logica/conexion.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,6 +12,10 @@ require '../logica/sesion_iniciada.php';
         require '../logica/sql_functions.php';
         $ch = $_GET['producto'];
         $productos = consulta("SELECT * FROM productos WHERE id=$ch");
+        $time = time()-28800;
+        $fecha = date("Y-m-d H:i:s", $time);
+        $conn->query("INSERT INTO log  (fecha, tipo, usuario)
+        VALUES('$fecha','Consulta de producto detallada','$_SESSION[id]')");
         echo '
         <script src="../js/head_content.js" type="text/javascript"></script>
         <script src="../js/body_content.js" type="text/javascript"></script>
@@ -57,7 +62,7 @@ require '../logica/sesion_iniciada.php';
                             </div>
                             <?php
                             echo '
-                            <p>Precio c/u $ '.$productos[0]['precio'].' USD</p>
+                            <p>Precio c/u $ '.$productos[0]['precio'].' </p>
                             <button id="myBtn" class="button">Comprar</button>
                         </div>
                     </div>';
@@ -81,7 +86,7 @@ require '../logica/sesion_iniciada.php';
                 echo '
                     <h3 style="padding-top: 20px;">'.$productos[0]['nombre'].'</h3>
                     Cantidad: <input type="number" id="myNumber" name="cantidad">
-                    <p>Precio c/u $ '.$productos[0]['precio'].' USD</p>
+                    <p>Precio c/u $ '.$productos[0]['precio'].' </p>
                     <input type="hidden" name="precio" value='.$productos[0]['precio'].' />
                     <input type="hidden" name="id" value='.$productos[0]['id'].' />
                     ';
@@ -92,27 +97,23 @@ require '../logica/sesion_iniciada.php';
                 <hr>
                 <label class="control-label">Banco</label><br>
                 <select name="banco" style="width: 50%; margin-bottom: 20px;">
-                    <option value="banco1">B1</option>
-                    <option value="banco2">B2</option>
-                    <option value="banco3">B3</option>
-                    <option value="banco4">B4</option>
+                    <option value="AureoBank">AureoBank</option>
                 </select>
                 <div style="display: flex;">
-                    <i class="fa fa-credit-card-alt icon" aria-hidden="true" style="padding-left: 5px"></i>
-                    <input class="entrada" type="number" placeholder="Enter your card number" name="cn" pattern="\d*" min="1" max="9999999999999999" required><br>
+                    <i class="fa fa-user-o icon" aria-hidden="true" style=""></i>
+                    <input class="entrada" type="email" placeholder="Enter your email" name="emac" required><br>
                 </div>
 
                 <div style="display: flex;">
-                    <i class="fa fa-user-o icon" aria-hidden="true"></i>
-                    <input class="entrada" type="text" name="nt" placeholder="Enter the name on your card" maxlength="40" required><br>
+                    <i class="fas fa-unlock icon" aria-hidden="true"></i>
+                    <input class="entrada" type="password" name="pwd" placeholder="Enter your password" maxlength="20" required><br>
                 </div>
                 
                 <div style="display: flex;">
-                    <i class="fa fa-calendar-o icon" aria-hidden="true"></i>
-                    <input class="entrada" style="width: 48.5%;" type="text" onfocus="(this.type='month')" placeholder="MM / YY" name="expd" min="2020-04" required>
-                    <i class="fa fa-lock icon" aria-hidden="true"></i>
-                    <input type="number" class="entrada" style="width: 48.5%;" name="cvv" placeholder="CVV" min="1" max="999" required>
+                    <i class="fa fa-credit-card-alt icon" aria-hidden="true" style="padding-left: 5px"></i>
+                    <input class="entrada" type="number" placeholder="Enter your account number" name="cn" pattern="\d*" min="1000000000000000" max="999999999999999999" required><br>
                 </div>
+                
                 <br>
                 <button type="submit" name="submit" class="button">Submit</button>
             </form>

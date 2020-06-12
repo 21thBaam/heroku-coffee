@@ -1,8 +1,11 @@
-﻿/************ 
+/************ 
 //--------------------------------
 // GENERAL
 //-------------------------------
 ************/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+
 body {
 	margin: 0;
 	padding: 0;
@@ -374,4 +377,18 @@ nav .mia {
 	.titu{
 		color: rgb(119, 36, 50);
 	}
+	
+    .log{
+    background-color: rgb(20, 20, 20);
+    color: rgba(255, 255, 255, 0.850);
+    width: 80%;
+    margin: 5px auto 0 auto;
+    height: 75vh;
+    overflow: scroll;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+    .logp{
+        margin: 3px;
+}
 /* */
