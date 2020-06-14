@@ -1,5 +1,5 @@
 <?php
-require '../vendor/autoload.php'; // If you're using Composer (recommended)
+require '/vendor/autoload.php'; // If you're using Composer (recommended)
 // Comment out the above line if not using Composer
 // require("<PATH TO>/sendgrid-php.php");
 // If not using Composer, uncomment the above line and
@@ -11,9 +11,9 @@ require '../vendor/autoload.php'; // If you're using Composer (recommended)
 $API_KEY = "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";
 
 $email = new \SendGrid\Mail\Mail(); 
-$email->setFrom("test@example.com", "Example User");
+$email->setFrom("angel-97_@hotmail.com", "Example User");
 $email->setSubject("Sending with SendGrid is Fun");
-$email->addTo("angel-97_@hotmail.com", "Example User");
+$email->addTo("rivalpaper@hotmail.com", "Example User");
 $email->addContent("text/plain", "and easy to do anywhere, even with PHP");
 $email->addContent(
     "text/html", "<strong>and easy to do anywhere, even with PHP</strong>"
