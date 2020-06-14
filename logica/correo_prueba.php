@@ -13,7 +13,7 @@ $API_KEY = "SG.KOGHTjDyTFmklbwydbJ7jA.xHK1ipe26_GAnJIvGT65hLfZTc5scYEWSDw0OnfMb_
 $email = new \SendGrid\Mail\Mail(); 
 $email->setFrom("angel-97_@hotmail.com", "Example User");
 $email->setSubject("Sending with SendGrid is Fun");
-$email->addTo("rivalpaper@hotmail.com", "Example User");
+$email->addTo("rivalpaper@gmail.com", "Example User");
 $email->addContent("text/plain", "and easy to do anywhere, even with PHP");
 $email->addContent(
     "text/html", "<strong>and easy to do anywhere, even with PHP</strong>"
