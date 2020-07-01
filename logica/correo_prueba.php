@@ -8,12 +8,12 @@ require '../vendor/autoload.php'; // If you're using Composer (recommended)
 // which is included in the download:
 // https://github.com/sendgrid/sendgrid-php/releases
 
-$API_KEY = "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";
+$API_KEY = "";
 
 $email = new \SendGrid\Mail\Mail(); 
-$email->setFrom("angel-97_@hotmail.com", "Example User");
+$email->setFrom("", "Example User");
 $email->setSubject("Sending with SendGrid is Fun");
-$email->addTo("rivalpaper@gmail.com", "Example User");
+$email->addTo("", "Example User");
 $email->addContent("text/plain", "and easy to do anywhere, even with PHP");
 $email->addContent(
     "text/html", "<strong>and easy to do anywhere, even with PHP</strong>"
